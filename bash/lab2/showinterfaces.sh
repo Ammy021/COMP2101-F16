@@ -7,8 +7,8 @@
 interfacenames=(`ifconfig | grep '^[a-zA-Z]'|awk '{print $1}'`)
 
 
-eth0ip[0]=`ifconfig ${interfacenames[0]} | grep 'inet addr' | sed -e 's/ *inet addr://' | sed -e 's/ .*//'`
-eth0ip[1]=`ifconfig ${interfacenames[1]} | grep 'inet addr' | sed -e 's/ *inet addr://' | sed -e 's/ .*//'`
+ips[0]=`ifconfig ${interfacenames[0]} | grep 'inet addr' | sed -e 's/ *inet addr://' | sed -e 's/ .*//'`
+ips[1]=`ifconfig ${interfacenames[1]} | grep 'inet addr' | sed -e 's/ *inet addr://' | sed -e 's/ .*//'`
 gatewayip=`route -n|grep '^0.0.0.0'|awk '{print $2}'`
 
 cat <<EOF
